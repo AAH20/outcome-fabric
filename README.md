@@ -2,6 +2,18 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## Acceptance Ledger: local exact-version review
+
+The OSS ledger extends WorkpaperCI with two primary review events, explicit disagreement adjudication, correction requests, version-bound decisions, a localhost review screen, and an offline Passport verifier. The committed demo is synthetic: four of five workpapers reach **simulated declared acceptance**, one requests correction, and **zero reviewers are authenticated**.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.acceptance_ledger_cli evaluate fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl --output /tmp/acceptance-ledger-passport.json
+PYTHONPATH=src python3 -m outcome_fabric.acceptance_ledger_cli verify fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl /tmp/acceptance-ledger-passport.json
+PYTHONPATH=src python3 -m outcome_fabric.acceptance_ledger_cli serve fixtures/acceptance-ledger-config.json /tmp/my-review-events.jsonl --port 8765
+```
+
+See the [review protocol, high-contrast architecture, and limits](docs/ACCEPTANCE_LEDGER.md). The UI binds only to localhost and is intended for public fixture or permitted local data; it has no login or authenticated reviewer identity.
+
 ## WorkpaperCI: finance-agent regression checks
 
 WorkpaperCI now runs a provider-neutral **recorded-output** comparison over five locked Apple filing tasks (FY2021–2025). It checks eight reported figures and operating-margin arithmetic per task, fails a candidate that adds wrong claims, and recomputes its scorecard offline. The included submissions and costs are synthetic; no agent code or human review runs in CI.

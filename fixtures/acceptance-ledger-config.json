@@ -1,0 +1,12 @@
+{
+  "benchmark": {
+    "path": "workpaperci/benchmark.json",
+    "sha256": "604d2f1414c017be855467787adc3e8f27d3e2ba5fabe0e0a648a5590e02dd8b"
+  },
+  "candidate_submission_id": "candidate",
+  "ledger_id": "apple-workpaper-review-demo-v1",
+  "review_mode": "SIMULATED_FIXTURE",
+  "reviewer_hourly_rate_usd": "40.00",
+  "rubric_version": "issuer-facts-review-v1",
+  "schema_version": "0.1.0"
+}

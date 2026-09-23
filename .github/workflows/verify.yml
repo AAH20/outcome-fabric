@@ -50,6 +50,10 @@ jobs:
           PYTHONPATH=src python -m outcome_fabric.workpaperci_cli run fixtures/workpaperci/benchmark.json --output /tmp/workpaperci-scorecard.json
           PYTHONPATH=src python -m outcome_fabric.workpaperci_cli verify fixtures/workpaperci/benchmark.json /tmp/workpaperci-scorecard.json
           PYTHONPATH=src python -m outcome_fabric.workpaperci_cli gate fixtures/workpaperci/benchmark.json --output /tmp/workpaperci-gate.json
+      - name: Recompute synthetic exact-version review ledger
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.acceptance_ledger_cli evaluate fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl --output /tmp/acceptance-ledger-passport.json
+          PYTHONPATH=src python -m outcome_fabric.acceptance_ledger_cli verify fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl /tmp/acceptance-ledger-passport.json
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry
