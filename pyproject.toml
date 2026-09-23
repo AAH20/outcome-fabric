@@ -1,12 +1,13 @@
 [project]
 name = "outcome-fabric"
-version = "0.2.0"
+version = "0.3.0"
 description = "Inspectable agentic AI platform for outcome planning, AI FinOps, and governance evidence"
 requires-python = ">=3.11"
 
 [project.scripts]
 outcome-fabric = "outcome_fabric.cli:main"
 outcome-passport = "outcome_fabric.passport_cli:main"
+outcome-bridge = "outcome_fabric.bridge_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

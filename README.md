@@ -2,6 +2,19 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## Outcome Evidence Bridge: local support-export reference
+
+The Bridge now reads **local CSV exports only** and reconciles support cases, acceptance decisions, and seven explicit cost categories into an aggregate Outcome Passport. It checks the file digests declared in a manifest, requires one decision for every case, rejects duplicate case IDs and missing cost categories, and omits case IDs and raw source rows from the resulting package. Its verifier re-reads the exports and recomputes the complete package.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.bridge_cli build fixtures/bridge/manifest.json --output /tmp/bridge-package.json
+PYTHONPATH=src python3 -m outcome_fabric.bridge_cli verify fixtures/bridge/manifest.json /tmp/bridge-package.json
+```
+
+The fixture is **synthetic**: the baseline has five eligible cases, four accepted cases, and $160 total cost ($40 per accepted resolution); the candidate has five eligible and accepted cases and $130 cost ($26 per accepted resolution). This tiny case proves reconciliation and arithmetic only. It is not evidence of real savings or causal lift.
+
+See [the Bridge contract and trust boundaries](docs/EVIDENCE_BRIDGE.md) before using customer exports. The `CUSTOMER_SUPPLIED_UNVERIFIED` label means exactly that: the local tool cannot authenticate export origin, permission, review, or completeness. Do not publish customer-derived packages without a separate customer-approved process.
+
 ## Outcome Passport: public reference implementation
 
 The open-source Passport extension converts explicit case counts and seven cost categories into a deterministic, portable measurement record. It has a separate verifier that recomputes the entire record and rejects altered metrics, evidence labels, or digests. The included support example is **entirely synthetic**. A passing verification means internal arithmetic and file integrity are consistent; it does **not** authenticate a source, prove customer consent, establish causality, or verify realized savings.

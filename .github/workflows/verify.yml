@@ -20,3 +20,7 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.passport_cli generate fixtures/support-passport-synthetic.json --output /tmp/support-passport.json
           PYTHONPATH=src python -m outcome_fabric.passport_cli verify /tmp/support-passport.json
+      - name: Reconcile synthetic exports and verify evidence package
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.bridge_cli build fixtures/bridge/manifest.json --output /tmp/bridge-package.json
+          PYTHONPATH=src python -m outcome_fabric.bridge_cli verify fixtures/bridge/manifest.json /tmp/bridge-package.json

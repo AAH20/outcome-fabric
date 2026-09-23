@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "passport_id": "synthetic-bridge-support-v1",
+  "evidence_class": "SYNTHETIC",
+  "permission_status": "DECLARED_BY_OPERATOR_NOT_VERIFIED",
+  "baseline_status": "DECLARED_LOCKED_NOT_AUTHENTICATED",
+  "subject": {
+    "workload": "AI-assisted customer support",
+    "deployment": "Synthetic local support export"
+  },
+  "protocol": {
+    "id": "support-accepted-resolution",
+    "version": "1.0.0",
+    "acceptance_rule": "Resolved without disqualifying rework within seven days",
+    "measurement_window": "Synthetic thirty-day window",
+    "currency": "USD"
+  },
+  "sources": {
+    "cases": {
+      "path": "cases.csv",
+      "sha256": "a64979b38caf21fb75a124db5c6813d50aad961e712594c0079c751445f4ac45"
+    },
+    "decisions": {
+      "path": "decisions.csv",
+      "sha256": "95ac571598f8edfef8ad805654d381948b9159b88d25ab9ede3b1aa4563a14e4"
+    },
+    "costs": {
+      "path": "costs.csv",
+      "sha256": "53ffb96f8a1732822ed0076ebe6404d8568ba8bd0ee39ea09f2b69fc158c60f3"
+    }
+  }
+}

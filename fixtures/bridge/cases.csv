@@ -1,0 +1,11 @@
+case_id,arm,category
+B001,baseline,billing
+B002,baseline,billing
+B003,baseline,billing
+B004,baseline,technical
+B005,baseline,technical
+C001,candidate,billing
+C002,candidate,billing
+C003,candidate,billing
+C004,candidate,technical
+C005,candidate,technical
