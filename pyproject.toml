@@ -1,6 +1,6 @@
 [project]
 name = "outcome-fabric"
-version = "0.11.0"
+version = "0.12.0"
 description = "Inspectable agentic AI platform for outcome planning, AI FinOps, and governance evidence"
 requires-python = ">=3.11"
 
@@ -17,6 +17,8 @@ finance-workpaper = "outcome_fabric.finance_workpaper_cli:main"
 workpaperci = "outcome_fabric.workpaperci_cli:main"
 acceptance-ledger = "outcome_fabric.acceptance_ledger_cli:main"
 outcome-zendesk-intake = "outcome_fabric.zendesk_intake_cli:main"
+outcome-zendesk-fetch = "outcome_fabric.zendesk_fetch_cli:main"
+outcome-zendesk-pilot = "outcome_fabric.zendesk_pilot_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

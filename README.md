@@ -13,6 +13,8 @@ PYTHONPATH=src python3 -m outcome_fabric.zendesk_intake_cli verify fixtures/zend
 
 See the [Outcome Network architecture, source contract, and production gates](docs/OUTCOME_NETWORK.md). Use a fresh private output directory for each run.
 
+A read-only Zendesk OAuth collector and pilot assembler now provide a private handoff from cursor pages to this intake. They retain only ticket ID, status and update time, and reject cross-origin cursor URLs. No live customer connection has been tested; reviewer identity and permission remain outside this reference. See [the pilot path](docs/OUTCOME_NETWORK.md#read-only-live-source-pilot-path).
+
 ## Acceptance Ledger: local exact-version review
 
 The OSS ledger extends WorkpaperCI with two primary review events, explicit disagreement adjudication, correction requests, version-bound decisions, a localhost review screen, and an offline Passport verifier. The committed demo is synthetic: four of five workpapers reach **simulated declared acceptance**, one requests correction, and **zero reviewers are authenticated**.
