@@ -27,9 +27,9 @@ flowchart TB
   Sources[Source and provenance records] --> World[Versioned WorldSnapshot]
   World --> Compiler
   Compiler --> Plans[Candidate plans]
-  Plans --> Scenarios[Scenario and failure replay]
+  Plans -. future .-> Scenarios[Scenario and failure replay]
   Plans --> Economics[AI FinOps and unit economics]
-  Scenarios --> Gate[Rights and authority preflight]
+  Scenarios -. future .-> Gate[Rights and authority preflight]
   Economics --> Gate
   Gate --> Receipt[Advisory decision receipt]
   Receipt --> Review[Independent human review]
@@ -38,7 +38,7 @@ flowchart TB
   Outcome -. future calibration .-> World
 ```
 
-Solid arrows show the reference design represented in the current CLI. Dotted arrows are **future integration boundaries**. The local kernel implements validation, plan comparison, elementary economics, and receipt generation; it does not implement live scenario replay, human approval, or outcome capture.
+Solid arrows show the reference design represented in the current CLI. Dotted arrows are **future integration boundaries**. The local kernel implements validation, plan comparison, elementary economics, and a declared-evidence preflight; it does not implement scenario replay, authenticated human approval, or outcome capture.
 
 ## Where this fits with existing A2Z projects
 
