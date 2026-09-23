@@ -1,0 +1,46 @@
+{
+  "goal": {
+    "id": "EG-SUPPORT-SYNTHETIC-001",
+    "objective": "Deploy a private AI support service with a measured cost and quality baseline",
+    "currency": "USD",
+    "annual_budget": 190000,
+    "max_delivery_days": 90,
+    "min_quality_score": 80,
+    "min_availability_pct": 99.5,
+    "data_residency": "EG",
+    "baseline_annual_cost": 240000,
+    "annual_cases": 100000
+  },
+  "plans": [
+    {
+      "id": "cheapest-global",
+      "provider": "Synthetic cloud provider A",
+      "data_residency": "OTHER",
+      "authorization_evidence": "missing",
+      "delivery_days": 60,
+      "quality_score": 82,
+      "availability_pct": 99.6,
+      "annual_costs": {"inference": 46000, "compute": 18000, "operations": 28000, "implementation_amortized": 12000}
+    },
+    {
+      "id": "local-private",
+      "provider": "Synthetic local provider B",
+      "data_residency": "EG",
+      "authorization_evidence": "present",
+      "delivery_days": 75,
+      "quality_score": 84,
+      "availability_pct": 99.7,
+      "annual_costs": {"inference": 51000, "compute": 37000, "operations": 56000, "implementation_amortized": 26000, "risk_allowance": 10000}
+    },
+    {
+      "id": "premium-local",
+      "provider": "Synthetic local provider C",
+      "data_residency": "EG",
+      "authorization_evidence": "present",
+      "delivery_days": 110,
+      "quality_score": 91,
+      "availability_pct": 99.9,
+      "annual_costs": {"inference": 60000, "compute": 52000, "operations": 66000, "implementation_amortized": 25000}
+    }
+  ]
+}
