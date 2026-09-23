@@ -1,0 +1,43 @@
+{
+  "passport_id": "synthetic-support-v1",
+  "evidence_class": "SYNTHETIC",
+  "subject": {
+    "workload": "AI-assisted customer support",
+    "deployment": "Synthetic private support service"
+  },
+  "protocol": {
+    "id": "support-accepted-resolution",
+    "version": "1.0.0",
+    "acceptance_rule": "Resolved without disqualifying rework within seven days",
+    "measurement_window": "Synthetic thirty-day window",
+    "currency": "USD"
+  },
+  "baseline": {
+    "eligible_cases": 1000,
+    "accepted_cases": 800,
+    "case_mix": {"billing": 400, "technical": 350, "general": 250},
+    "costs": {
+      "inference": 0,
+      "retrieval": 0,
+      "infrastructure": 2000,
+      "human_qa": 18000,
+      "rework": 4000,
+      "operations": 3000,
+      "allocated_setup": 1000
+    }
+  },
+  "candidate": {
+    "eligible_cases": 1000,
+    "accepted_cases": 850,
+    "case_mix": {"billing": 400, "technical": 350, "general": 250},
+    "costs": {
+      "inference": 1800,
+      "retrieval": 400,
+      "infrastructure": 2200,
+      "human_qa": 10500,
+      "rework": 3200,
+      "operations": 3300,
+      "allocated_setup": 2500
+    }
+  }
+}

@@ -16,3 +16,7 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Run synthetic case
         run: PYTHONPATH=src python -m outcome_fabric.cli fixtures/ai-support-service.json --output /tmp/outcome-fabric-receipt.json
+      - name: Generate and independently verify synthetic Passport
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.passport_cli generate fixtures/support-passport-synthetic.json --output /tmp/support-passport.json
+          PYTHONPATH=src python -m outcome_fabric.passport_cli verify /tmp/support-passport.json

@@ -2,6 +2,43 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## Outcome Passport: public reference implementation
+
+The open-source Passport extension converts explicit case counts and seven cost categories into a deterministic, portable measurement record. It has a separate verifier that recomputes the entire record and rejects altered metrics, evidence labels, or digests. The included support example is **entirely synthetic**. A passing verification means internal arithmetic and file integrity are consistent; it does **not** authenticate a source, prove customer consent, establish causality, or verify realized savings.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.passport_cli generate fixtures/support-passport-synthetic.json --output /tmp/support-passport.json
+PYTHONPATH=src python3 -m outcome_fabric.passport_cli verify /tmp/support-passport.json
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+```
+
+The synthetic baseline has 800 accepted resolutions among 1,000 eligible cases and $28,000 in attributable cost: **$35.00 per accepted resolution**. The synthetic candidate has 850 accepted resolutions and $23,900 in cost: **$28.1176 per accepted resolution**. The displayed $6.8824 difference is descriptive arithmetic over invented inputs, not a real saving or causal estimate.
+
+```mermaid
+flowchart LR
+  Input["Synthetic or user-supplied counts and costs"] --> Validate["Strict input and case-mix validation"]
+  Validate --> Calculate["Accepted-resolution and all-in cost metrics"]
+  Calculate --> Digest["Canonical input and Passport digests"]
+  Digest --> Passport["Portable Outcome Passport"]
+  Passport --> Verify["Independent offline recalculation"]
+  Verify --> Scope["Arithmetic and integrity only"]
+```
+
+The input contract requires a workload and deployment label, a named and versioned protocol, an acceptance rule, a measurement window, a currency, and baseline/candidate arms. Each arm needs eligible and accepted case counts, case-mix category counts, and **all seven** cost categories: inference, retrieval, infrastructure, human QA, rework, operations, and allocated setup. Missing categories, invalid counts, or negative/nonfinite costs fail closed. A cost difference is withheld unless both arms have identical case-mix counts. Even identical aggregate counts do not prove equal case difficulty.
+
+Only `SYNTHETIC` and `CUSTOMER_SUPPLIED_UNVERIFIED` are accepted evidence classes. The CLI never outputs an independently verified or publication-approved claim. The schema is implemented in `src/outcome_fabric/passport.py`; `fixtures/support-passport-synthetic.json` is the reproducible example. Version 0.1.0 of the Passport contract is intentionally narrow and should be versioned before adding source attestations, consent records, uncertainty analysis, or public publication workflows.
+
+### Release boundary
+
+| Open-source now | Requires a later, consented product workflow |
+| --- | --- |
+| Portable input and output contract; deterministic calculator and verifier | Authenticated customer connectors and source-level verification |
+| Synthetic support case; tests and CI | Customer-controlled private evidence storage and approvals |
+| Explicit cost denominator, evidence label, and limitations | Independent review, dispute handling, and publication consent |
+| Offline local use without accounts or credentials | Cross-customer comparisons and buyer matching |
+
+The next evidence gate is a **read-only pilot** in which a customer defines acceptance, supplies permitted source records, and reviews the cost allocation. Do not publish a customer result or call it verified merely because this CLI passes. A future commercial exchange should be evaluated only after comparable, customer-approved pilots exist.
+
 Outcome Fabric is an open-source reference kernel for an eventual goal-to-proof platform. This first version evaluates a **synthetic private AI customer-support deployment**. It compares cost, delivery time, quality, availability, data residency, and declared approval evidence. It deliberately does not deploy infrastructure, run agents, authenticate people, or prove realized savings.
 
 The most useful discovery phrases for this project are **agentic AI platform**, **AI infrastructure**, **AI FinOps**, **AI governance**, and **AI agent evaluation**. They describe real parts of the product. No public source consulted for this release provides reliable absolute search volumes or proves this exact ranking. [Google Trends normalizes interest to 0–100 rather than publishing absolute query counts](https://support.google.com/trends/answer/4365533?hl=en); the keyword choices are hypotheses to validate with Search Console and a licensed keyword dataset after publication.
