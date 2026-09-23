@@ -1,0 +1,8 @@
+{
+  "tickets": [
+    {"id": 101, "status": "open", "updated_at": "2026-09-01T00:00:00Z", "subject": "Synthetic billing question"},
+    {"id": 202, "status": "closed", "updated_at": "2026-09-02T00:00:00Z", "subject": "Synthetic order question"},
+    {"id": 303, "status": "solved", "updated_at": "2026-09-02T00:00:00Z", "subject": "Synthetic billing follow-up"}
+  ],
+  "end_of_stream": false
+}

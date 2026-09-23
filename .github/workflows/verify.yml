@@ -54,6 +54,10 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.acceptance_ledger_cli evaluate fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl --output /tmp/acceptance-ledger-passport.json
           PYTHONPATH=src python -m outcome_fabric.acceptance_ledger_cli verify fixtures/acceptance-ledger-config.json fixtures/acceptance-ledger/demo-events.jsonl /tmp/acceptance-ledger-passport.json
+      - name: Run and verify synthetic Zendesk export intake
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.zendesk_intake_cli run fixtures/zendesk-intake/intake.json /tmp/outcome-zendesk-intake-ci
+          PYTHONPATH=src python -m outcome_fabric.zendesk_intake_cli verify fixtures/zendesk-intake/intake.json /tmp/outcome-zendesk-intake-ci
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry

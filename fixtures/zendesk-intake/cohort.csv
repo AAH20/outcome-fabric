@@ -1,0 +1,4 @@
+case_id,arm,category
+101,baseline,billing
+202,candidate,billing
+303,candidate,billing

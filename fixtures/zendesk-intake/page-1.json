@@ -1,0 +1,6 @@
+{
+  "tickets": [
+    {"id": 101, "status": "solved", "updated_at": "2026-09-03T00:00:00Z", "subject": "Synthetic billing question"}
+  ],
+  "end_of_stream": true
+}

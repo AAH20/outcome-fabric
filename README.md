@@ -2,6 +2,17 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## Outcome Network: offline Zendesk pilot intake
+
+The next production-pilot slice reads **customer-supplied saved Zendesk incremental ticket pages**, a declared eligible cohort, separate acceptance decisions, and complete cost categories. It creates a private Bridge input package and independently recomputes it. The included example is synthetic. This is an offline read-only adapter, **not** a live Zendesk integration, authenticated reviewer workflow, or source/permission attestation.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.zendesk_intake_cli run fixtures/zendesk-intake/intake.json /tmp/outcome-network-pilot-demo
+PYTHONPATH=src python3 -m outcome_fabric.zendesk_intake_cli verify fixtures/zendesk-intake/intake.json /tmp/outcome-network-pilot-demo
+```
+
+See the [Outcome Network architecture, source contract, and production gates](docs/OUTCOME_NETWORK.md). Use a fresh private output directory for each run.
+
 ## Acceptance Ledger: local exact-version review
 
 The OSS ledger extends WorkpaperCI with two primary review events, explicit disagreement adjudication, correction requests, version-bound decisions, a localhost review screen, and an offline Passport verifier. The committed demo is synthetic: four of five workpapers reach **simulated declared acceptance**, one requests correction, and **zero reviewers are authenticated**.

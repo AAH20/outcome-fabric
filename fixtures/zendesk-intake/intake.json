@@ -1,0 +1,38 @@
+{
+  "cohort": {
+    "path": "cohort.csv",
+    "sha256": "2c43f451ff98e1a67c760df0ace3083d4d78c2b28a35cb47d6f55b30ee1b4494"
+  },
+  "costs": {
+    "path": "costs.csv",
+    "sha256": "a48ba4577b3aaf9bb07a65bc18deb1c57da6de2cb163ae94c52ca3229a137acb"
+  },
+  "decisions": {
+    "path": "decisions.csv",
+    "sha256": "901d971b7a335892af2df9d897d0d1eec528f3dac8a19413cc950030ea41a818"
+  },
+  "pages": [
+    {
+      "path": "page-0.json",
+      "sha256": "68f63664d93c16331e0a849ace1d98de01b8eaa2b9b6d04ec73dd85ecff6b499"
+    },
+    {
+      "path": "page-1.json",
+      "sha256": "e77761f9e662ad786c2078451982b9e0d9b7a28c624574c7609b8a18134510f8"
+    }
+  ],
+  "passport_id": "synthetic-zendesk-intake-v1",
+  "protocol": {
+    "acceptance_rule": "Synthetic reviewer decision; ticket status is eligibility only",
+    "currency": "USD",
+    "id": "support-accepted-resolution",
+    "measurement_window": "Synthetic September 2026 window",
+    "version": "1.0.0"
+  },
+  "schema_version": "0.1.0",
+  "subject": {
+    "deployment": "Synthetic offline Zendesk export",
+    "workload": "AI-assisted customer support"
+  },
+  "tenant_id": "synthetic-pilot"
+}
