@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1.0",
+  "clinic_id": "apparent-completion-human-acceptance-v1",
+  "title": "Artifact exists, but the human cannot accept it",
+  "evidence_class": "SYNTHETIC",
+  "claim": {
+    "claim_id": "task_complete",
+    "text": "The agent completed the policy memo because it returned COMPLETED and produced an artifact."
+  },
+  "scenario": {
+    "task_id": "policy-memo-001",
+    "requested_outcome": "A policy memo accepted by a human reviewer with the required evidence map.",
+    "agent_status": "COMPLETED",
+    "artifact_exists": true,
+    "evidence": {
+      "required": [
+        "source_citations",
+        "acceptance_criteria_mapping",
+        "owner_signoff"
+      ],
+      "observed": [
+        "source_citations"
+      ]
+    },
+    "acceptance": {
+      "initial_decision": "CORRECTION_REQUIRED",
+      "initial_reason": "The memo exists, but the acceptance-criteria mapping and owner sign-off are missing.",
+      "initial_review_minutes": 20,
+      "followup_decision": "ACCEPT",
+      "followup_review_minutes": 5,
+      "reviewer_hourly_rate_usd": "30.00",
+      "rework_cost_usd": "6.50"
+    },
+    "costs": {
+      "inference": "0.80",
+      "retrieval": "0.35",
+      "compute": "0.20",
+      "allocated_setup": "1.00"
+    }
+  },
+  "verifier": {
+    "completion_signals": [
+      "agent_status=COMPLETED",
+      "artifact_exists=true"
+    ],
+    "required_acceptance": "ACCEPT",
+    "required_evidence": [
+      "source_citations",
+      "acceptance_criteria_mapping",
+      "owner_signoff"
+    ]
+  },
+  "expected_result": {
+    "naive_verifier": "PASS",
+    "independent_verifier": "FAIL",
+    "failure_code": "HUMAN_ACCEPTANCE_NOT_ESTABLISHED",
+    "rework_required": true,
+    "total_cost_after_rework_usd": "21.35"
+  },
+  "limitations": [
+    "All task states, review decisions, evidence fields, minutes, and costs are invented.",
+    "The verifier checks this fixture's declared state; it does not authenticate a reviewer or inspect a real system.",
+    "The result demonstrates a failure pattern, not a customer result, certification, causal effect, or production benchmark.",
+    "The cost is a small synthetic estimate and excludes any unlisted opportunity or operational cost."
+  ]
+}

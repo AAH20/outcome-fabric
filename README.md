@@ -27,6 +27,28 @@ PYTHONPATH=src python3 -m outcome_fabric.acceptance_ledger_cli serve fixtures/ac
 
 See the [review protocol, high-contrast architecture, and limits](docs/ACCEPTANCE_LEDGER.md). The UI binds only to localhost and is intended for public fixture or permitted local data; it has no login or authenticated reviewer identity.
 
+## Agent Failure Clinic: apparent completion versus human acceptance
+
+The first Failure Clinic is a runnable synthetic case where an agent reports `COMPLETED` and produces an artifact, while an independent acceptance check fails on missing evidence and exposes the declared rework cost.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.failure_clinic_cli run fixtures/failure-clinic/apparent-completion.json --output /tmp/agent-failure-clinic.json
+PYTHONPATH=src python3 -m outcome_fabric.failure_clinic_cli verify fixtures/failure-clinic/apparent-completion.json /tmp/agent-failure-clinic.json
+```
+
+See the [case protocol, expected result, and limitations](docs/AGENT_FAILURE_CLINIC.md). All values are invented; this case is not a customer result, certification, independent assurance, or production benchmark.
+
+## Outcome Exchange: typed routing, swarm replay, and unit economics
+
+Outcome Exchange is a small, local reference kernel for a future job and agent-work marketplace. It keeps a typed Laya-compatible routing decision separate from execution, replays a declared swarm, evaluates acceptance and evolution gates, and reconciles per-job economics. It does not load a Laya model, spawn agents, hire workers, process payments, or claim marketplace performance.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.outcome_exchange_cli run fixtures/laya-outcome-exchange/synthetic-job.json --output /tmp/laya-outcome-exchange.json
+PYTHONPATH=src python3 -m outcome_fabric.outcome_exchange_cli verify fixtures/laya-outcome-exchange/synthetic-job.json /tmp/laya-outcome-exchange.json
+```
+
+The fixture deliberately returns `UNRESOLVED` and blocks promotion because human acceptance is missing. Its `$75.00` price, `$61.50` modeled cost, and `$13.50` contribution margin are invented synthetic values. See the [Outcome Exchange protocol and commercial boundary](docs/OUTCOME_EXCHANGE.md).
+
 ## WorkpaperCI: finance-agent regression checks
 
 WorkpaperCI now runs a provider-neutral **recorded-output** comparison over five locked Apple filing tasks (FY2021–2025). It checks eight reported figures and operating-margin arithmetic per task, fails a candidate that adds wrong claims, and recomputes its scorecard offline. The included submissions and costs are synthetic; no agent code or human review runs in CI.

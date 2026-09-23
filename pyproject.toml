@@ -19,6 +19,8 @@ acceptance-ledger = "outcome_fabric.acceptance_ledger_cli:main"
 outcome-zendesk-intake = "outcome_fabric.zendesk_intake_cli:main"
 outcome-zendesk-fetch = "outcome_fabric.zendesk_fetch_cli:main"
 outcome-zendesk-pilot = "outcome_fabric.zendesk_pilot_cli:main"
+agent-failure-clinic = "outcome_fabric.failure_clinic_cli:main"
+outcome-exchange = "outcome_fabric.outcome_exchange_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

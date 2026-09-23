@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.1.0",
+  "evidence_class": "SYNTHETIC",
+  "job": {
+    "job_id": "JOB-SYNTHETIC-CLOUD-001",
+    "title": "Review a multi-cloud change plan",
+    "objective": "Produce a reviewable change decision with evidence and explicit human acceptance.",
+    "budget_usd": "75.00",
+    "acceptance_criteria": [
+      {"id": "PLAN_DIGEST", "description": "The exact plan version is recorded.", "required": true},
+      {"id": "SECURITY_EVIDENCE", "description": "Security and policy checks are attached.", "required": true},
+      {"id": "HUMAN_ACCEPTANCE", "description": "The accountable human accepts the result.", "required": true}
+    ],
+    "worker_policy": {
+      "allowed_worker_types": ["human", "agent", "swarm"],
+      "requires_independent_verifier": true
+    }
+  },
+  "decision": {
+    "model": "laya-compatible-local-router",
+    "type": "choice",
+    "question": "Which worker route should execute this job?",
+    "options": ["human", "agent", "swarm"],
+    "selected": "swarm",
+    "probabilities": {"human": 0.15, "agent": 0.20, "swarm": 0.65}
+  },
+  "swarm": {
+    "members": [
+      {"id": "planner-01", "worker_type": "agent", "role": "planner", "capabilities": ["decompose", "bind_acceptance"]},
+      {"id": "reviewer-01", "worker_type": "agent", "role": "security-reviewer", "capabilities": ["policy_check", "evidence_reconciliation"]},
+      {"id": "verifier-01", "worker_type": "agent", "role": "independent-verifier", "capabilities": ["replay", "acceptance_gate"]}
+    ],
+    "tasks": [
+      {"id": "intake", "role": "planner", "status": "COMPLETED", "evidence": ["JOB_CONTRACT"]},
+      {"id": "plan-review", "role": "security-reviewer", "status": "COMPLETED", "evidence": ["PLAN_DIGEST", "SECURITY_EVIDENCE"]},
+      {"id": "independent-check", "role": "independent-verifier", "status": "COMPLETED", "evidence": ["PLAN_DIGEST", "SECURITY_EVIDENCE"]}
+    ],
+    "observed_evidence": ["PLAN_DIGEST", "SECURITY_EVIDENCE"],
+    "human_acceptance": "NOT_RECORDED",
+    "rework_cost_usd": "12.00",
+    "elapsed_seconds": 184
+  },
+  "economics": {
+    "customer_price_usd": "75.00",
+    "worker_payout_usd": "28.00",
+    "model_cost_usd": "9.50",
+    "compute_cost_usd": "3.25",
+    "human_review_cost_usd": "10.00",
+    "payment_fee_usd": "2.25",
+    "support_reserve_usd": "2.50",
+    "rework_reserve_usd": "6.00"
+  },
+  "evolution": {
+    "candidate_version": "router-0.1.0",
+    "parent_version": null,
+    "change_type": "initial_reference_candidate",
+    "benchmark_suite": ["synthetic-cloud-change-v1"],
+    "holdout_required": true,
+    "promotion_gates": {
+      "min_first_pass_acceptance": 1.0,
+      "max_rework_rate": 0.05,
+      "max_cost_per_accepted_outcome_usd": "75.00"
+    }
+  },
+  "evaluation": {
+    "reviewer_count": 1,
+    "required_metric_names": ["first_pass_acceptance", "evidence_completeness", "reviewer_agreement", "rework_rate", "cost_per_accepted_outcome_usd"]
+  },
+  "expected_result": {
+    "route": "swarm",
+    "outcome": "UNRESOLVED",
+    "accepted": false,
+    "failure_codes": ["HUMAN_ACCEPTANCE_NOT_ESTABLISHED", "REQUIRED_EVIDENCE_GAP"],
+    "total_cost_usd": "61.50",
+    "contribution_margin_usd": "13.50",
+    "contribution_margin_pct": "18.0000",
+    "promotion_decision": "BLOCKED"
+  },
+  "limitations": [
+    "Laya-compatible means the fixture uses a typed choice decision; no Laya model is loaded.",
+    "The swarm is a deterministic replay of declared task records, not live multi-agent execution.",
+    "Human identity, consent, payment, fraud controls, and production acceptance are not implemented.",
+    "All job, timing, cost, and evaluation values are invented synthetic inputs.",
+    "One fixture cannot establish ranking, quality, demand, or commercial viability."
+  ]
+}
