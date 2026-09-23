@@ -24,3 +24,7 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.bridge_cli build fixtures/bridge/manifest.json --output /tmp/bridge-package.json
           PYTHONPATH=src python -m outcome_fabric.bridge_cli verify fixtures/bridge/manifest.json /tmp/bridge-package.json
+      - name: Run and verify synthetic OutcomeBench scorecard
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.outcomebench_cli run fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json --output /tmp/outcomebench-scorecard.json
+          PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-scorecard.json

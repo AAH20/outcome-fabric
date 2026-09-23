@@ -2,6 +2,17 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## OutcomeBench: recorded-export reference runner
+
+OutcomeBench now has a versioned customer-support protocol and a **one-command local benchmark** over the synthetic Evidence Bridge fixture. It emits a scope-limited scorecard with accepted-resolution cost, acceptance-rate intervals, sample and quality gates, and an offline verifier. The five-case-per-arm fixture is **below the protocol's 30-case minimum**, so its result is labeled `DEMO_ONLY_INSUFFICIENT_SAMPLE` and carries no production recommendation.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli run fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json --output /tmp/outcomebench-scorecard.json
+PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli verify fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-scorecard.json
+```
+
+See [the OutcomeBench architecture and release gates](docs/OUTCOMEBENCH_ARCHITECTURE.md). This first slice replays recorded exports; it does **not** execute an agent, integrate with agent frameworks, authenticate source systems, establish causal lift, operate a public registry, or provide a commercial service.
+
 ## Outcome Evidence Bridge: local support-export reference
 
 The Bridge now reads **local CSV exports only** and reconciles support cases, acceptance decisions, and seven explicit cost categories into an aggregate Outcome Passport. It checks the file digests declared in a manifest, requires one decision for every case, rejects duplicate case IDs and missing cost categories, and omits case IDs and raw source rows from the resulting package. Its verifier re-reads the exports and recomputes the complete package.

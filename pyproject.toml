@@ -1,6 +1,6 @@
 [project]
 name = "outcome-fabric"
-version = "0.3.0"
+version = "0.4.0"
 description = "Inspectable agentic AI platform for outcome planning, AI FinOps, and governance evidence"
 requires-python = ">=3.11"
 
@@ -8,6 +8,7 @@ requires-python = ">=3.11"
 outcome-fabric = "outcome_fabric.cli:main"
 outcome-passport = "outcome_fabric.passport_cli:main"
 outcome-bridge = "outcome_fabric.bridge_cli:main"
+outcomebench = "outcome_fabric.outcomebench_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
