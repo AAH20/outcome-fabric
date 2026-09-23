@@ -1,0 +1,12 @@
+{
+  "categories": {
+    "allocated_setup": "0.50",
+    "compute": "0.05",
+    "data": "0.00",
+    "model": "0.30",
+    "review": "4.00",
+    "rework": "0.00"
+  },
+  "currency": "USD",
+  "schema_version": "0.1.0"
+}

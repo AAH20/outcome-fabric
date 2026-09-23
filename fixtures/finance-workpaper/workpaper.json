@@ -1,0 +1,78 @@
+{
+  "accession": "0000320193-25-000079",
+  "claims": [
+    {
+      "claim_id": "revenue",
+      "end": "2025-09-27",
+      "fact_id": "revenue",
+      "start": "2024-09-29",
+      "unit": "USD",
+      "value": "416161000000"
+    },
+    {
+      "claim_id": "operating_income",
+      "end": "2025-09-27",
+      "fact_id": "operating_income",
+      "start": "2024-09-29",
+      "unit": "USD",
+      "value": "133050000000"
+    },
+    {
+      "claim_id": "net_income",
+      "end": "2025-09-27",
+      "fact_id": "net_income",
+      "start": "2024-09-29",
+      "unit": "USD",
+      "value": "112010000000"
+    },
+    {
+      "claim_id": "diluted_eps",
+      "end": "2025-09-27",
+      "fact_id": "diluted_eps",
+      "start": "2024-09-29",
+      "unit": "USD/shares",
+      "value": "7.46"
+    },
+    {
+      "claim_id": "cash",
+      "end": "2025-09-27",
+      "fact_id": "cash",
+      "start": null,
+      "unit": "USD",
+      "value": "35934000000"
+    },
+    {
+      "claim_id": "current_long_term_debt",
+      "end": "2025-09-27",
+      "fact_id": "current_long_term_debt",
+      "start": null,
+      "unit": "USD",
+      "value": "12350000000"
+    },
+    {
+      "claim_id": "noncurrent_long_term_debt",
+      "end": "2025-09-27",
+      "fact_id": "noncurrent_long_term_debt",
+      "start": null,
+      "unit": "USD",
+      "value": "78328000000"
+    },
+    {
+      "claim_id": "operating_cash_flow",
+      "end": "2025-09-27",
+      "fact_id": "operating_cash_flow",
+      "start": "2024-09-29",
+      "unit": "USD",
+      "value": "111482000000"
+    },
+    {
+      "claim_id": "operating_margin_pct",
+      "formula": "100 * operating_income / revenue",
+      "unit": "percent",
+      "value": "31.97"
+    }
+  ],
+  "entity_cik": "0000320193",
+  "schema_version": "0.1.0",
+  "workpaper_id": "apple-fy2025-issuer-pack"
+}

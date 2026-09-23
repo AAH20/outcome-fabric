@@ -1,0 +1,24 @@
+{
+  "case_id": "apple-fy2025-offline-reference",
+  "cost": {
+    "path": "cost.json",
+    "sha256": "c6d871113262eb6eee77ff93e67e5af980a6dffc111cc24b78563336b911aaff"
+  },
+  "protocol": {
+    "path": "protocol.json",
+    "sha256": "db47ee541699e9461d9f5c5a3a45a095045d29fcc30d9a8be3e92364f8cc7b86"
+  },
+  "review": {
+    "path": "review.json",
+    "sha256": "babe1411331dbd53689e080866f9cf9465df7f2e4f291846e376d4bb02734007"
+  },
+  "schema_version": "0.1.0",
+  "source": {
+    "path": "source.json",
+    "sha256": "688950335cb83fc87bc95077c3d78f8b37333b0a883e7a6e0e7e99ed9d968214"
+  },
+  "workpaper": {
+    "path": "workpaper.json",
+    "sha256": "f726321ec9e309927913b67c06b9bf5fae7a4fc7e0cb3a5c5344c1b999a0fbd2"
+  }
+}

@@ -2,6 +2,17 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## Finance Workpaper Passport: public-data reference
+
+The finance vertical checks an issuer data pack against a locked excerpt of Apple's FY2025 SEC XBRL facts, binds a **simulated** review to the exact workpaper version, calculates synthetic all-in cost, and verifies the Passport offline. Its nine checks cover fact identity, citation, unit, period, value and operating-margin arithmetic. This is a public-data reference with invented review and cost inputs, not an investment recommendation or a production finance-agent integration.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.finance_workpaper_cli build fixtures/finance-workpaper/case.json --output /tmp/finance-workpaper-passport.json
+PYTHONPATH=src python3 -m outcome_fabric.finance_workpaper_cli verify fixtures/finance-workpaper/case.json /tmp/finance-workpaper-passport.json
+```
+
+See the [high-contrast provenance architecture and exact scope](docs/FINANCE_WORKPAPER.md).
+
 ## OutcomeBench Field Lab: private synthetic pilot
 
 Field Lab now provides a reproducible, read-only pilot workflow over local support exports. It locks the Bridge manifest and benchmark protocol, checks declared case and source-row counts, runs reconciliation and scoring, and recomputes the private aggregate package offline. The bundled 40-case-per-arm pilot is synthetic; it establishes local reproducibility only.

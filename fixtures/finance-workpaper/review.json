@@ -1,0 +1,8 @@
+{
+  "correction_minutes": 0,
+  "decision": "ACCEPTED",
+  "review_kind": "SIMULATED_FIXTURE_REVIEW_NOT_AUTHENTICATED",
+  "reviewer_role": "synthetic_analyst",
+  "schema_version": "0.1.0",
+  "workpaper_sha256": "f726321ec9e309927913b67c06b9bf5fae7a4fc7e0cb3a5c5344c1b999a0fbd2"
+}

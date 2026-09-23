@@ -41,6 +41,10 @@ jobs:
           PYTHONPATH=src python -m outcome_fabric.fieldlab_cli preflight fixtures/fieldlab/pilot.json --output /tmp/fieldlab-preflight.json
           PYTHONPATH=src python -m outcome_fabric.fieldlab_cli run fixtures/fieldlab/pilot.json --output /tmp/fieldlab-private.json
           PYTHONPATH=src python -m outcome_fabric.fieldlab_cli verify fixtures/fieldlab/pilot.json /tmp/fieldlab-private.json
+      - name: Build and verify public-data finance workpaper reference
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.finance_workpaper_cli build fixtures/finance-workpaper/case.json --output /tmp/finance-workpaper-passport.json
+          PYTHONPATH=src python -m outcome_fabric.finance_workpaper_cli verify fixtures/finance-workpaper/case.json /tmp/finance-workpaper-passport.json
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry
