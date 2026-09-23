@@ -1,0 +1,78 @@
+{
+  "accession": "0000320193-21-000105",
+  "claims": [
+    {
+      "claim_id": "revenue",
+      "end": "2021-09-25",
+      "fact_id": "revenue",
+      "start": "2020-09-27",
+      "unit": "USD",
+      "value": "365817000000"
+    },
+    {
+      "claim_id": "operating_income",
+      "end": "2021-09-25",
+      "fact_id": "operating_income",
+      "start": "2020-09-27",
+      "unit": "USD",
+      "value": "108949000000"
+    },
+    {
+      "claim_id": "net_income",
+      "end": "2021-09-25",
+      "fact_id": "net_income",
+      "start": "2020-09-27",
+      "unit": "USD",
+      "value": "94680000000"
+    },
+    {
+      "claim_id": "diluted_eps",
+      "end": "2021-09-25",
+      "fact_id": "diluted_eps",
+      "start": "2020-09-27",
+      "unit": "USD/shares",
+      "value": "5.61"
+    },
+    {
+      "claim_id": "cash",
+      "end": "2021-09-25",
+      "fact_id": "cash",
+      "start": null,
+      "unit": "USD",
+      "value": "34940000000"
+    },
+    {
+      "claim_id": "current_long_term_debt",
+      "end": "2021-09-25",
+      "fact_id": "current_long_term_debt",
+      "start": null,
+      "unit": "USD",
+      "value": "9613000000"
+    },
+    {
+      "claim_id": "noncurrent_long_term_debt",
+      "end": "2021-09-25",
+      "fact_id": "noncurrent_long_term_debt",
+      "start": null,
+      "unit": "USD",
+      "value": "109106000000"
+    },
+    {
+      "claim_id": "operating_cash_flow",
+      "end": "2021-09-25",
+      "fact_id": "operating_cash_flow",
+      "start": "2020-09-27",
+      "unit": "USD",
+      "value": "104038000000"
+    },
+    {
+      "claim_id": "operating_margin_pct",
+      "formula": "100 * operating_income / revenue",
+      "unit": "percent",
+      "value": "29.78"
+    }
+  ],
+  "entity_cik": "0000320193",
+  "schema_version": "0.1.0",
+  "workpaper_id": "baseline-apple-fy2021"
+}

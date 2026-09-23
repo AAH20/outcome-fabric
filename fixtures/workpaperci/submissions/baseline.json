@@ -1,0 +1,83 @@
+{
+  "adapter_kind": "RECORDED_OUTPUT_NO_CODE_EXECUTION",
+  "cost_basis": "SYNTHETIC_ESTIMATE",
+  "runs": [
+    {
+      "costs": {
+        "allocated_setup": "0.50",
+        "compute": "0.05",
+        "data": "0.00",
+        "model": "0.30",
+        "review": "3.50",
+        "rework": "0.65"
+      },
+      "task_id": "apple-fy2021",
+      "workpaper": {
+        "path": "submissions/baseline/apple-2021.json",
+        "sha256": "8cc7a771b851941d6a5f3fecc66875520c00f2885f35849ee6719b31f77c1d15"
+      }
+    },
+    {
+      "costs": {
+        "allocated_setup": "0.50",
+        "compute": "0.05",
+        "data": "0.00",
+        "model": "0.30",
+        "review": "3.50",
+        "rework": "0.65"
+      },
+      "task_id": "apple-fy2022",
+      "workpaper": {
+        "path": "submissions/baseline/apple-2022.json",
+        "sha256": "fc61571fd7b0dda8a5de93963ba13042f921f7f9f740fec37dc6df06e5e16c8b"
+      }
+    },
+    {
+      "costs": {
+        "allocated_setup": "0.50",
+        "compute": "0.05",
+        "data": "0.00",
+        "model": "0.30",
+        "review": "3.50",
+        "rework": "0.65"
+      },
+      "task_id": "apple-fy2023",
+      "workpaper": {
+        "path": "submissions/baseline/apple-2023.json",
+        "sha256": "b168f74712cd619f2434ab7a9cd22319341686065359ea0d554afd269cc172d2"
+      }
+    },
+    {
+      "costs": {
+        "allocated_setup": "0.50",
+        "compute": "0.05",
+        "data": "0.00",
+        "model": "0.30",
+        "review": "3.50",
+        "rework": "0.65"
+      },
+      "task_id": "apple-fy2024",
+      "workpaper": {
+        "path": "submissions/baseline/apple-2024.json",
+        "sha256": "a3b2f8002b770c40cb2f534dab6e890f52457ad2f19e46e9768b1fa794e2bd68"
+      }
+    },
+    {
+      "costs": {
+        "allocated_setup": "0.50",
+        "compute": "0.05",
+        "data": "0.00",
+        "model": "0.30",
+        "review": "3.50",
+        "rework": "0.65"
+      },
+      "task_id": "apple-fy2025",
+      "workpaper": {
+        "path": "submissions/baseline/apple-2025.json",
+        "sha256": "45bb52729d9354b9dc803960cad55f6feb410cc5731c41b14d46b0c90ef61a9c"
+      }
+    }
+  ],
+  "schema_version": "0.1.0",
+  "submission_id": "baseline"
+}

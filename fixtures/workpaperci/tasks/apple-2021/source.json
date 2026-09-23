@@ -1,0 +1,107 @@
+{
+  "accession": "0000320193-21-000105",
+  "cik": "0000320193",
+  "entity_name": "Apple Inc.",
+  "facts": [
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "end": "2021-09-25",
+      "fact_id": "revenue",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": "2020-09-27",
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "365817000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "OperatingIncomeLoss",
+      "end": "2021-09-25",
+      "fact_id": "operating_income",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": "2020-09-27",
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "108949000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "NetIncomeLoss",
+      "end": "2021-09-25",
+      "fact_id": "net_income",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": "2020-09-27",
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "94680000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "EarningsPerShareDiluted",
+      "end": "2021-09-25",
+      "fact_id": "diluted_eps",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": "2020-09-27",
+      "taxonomy": "us-gaap",
+      "unit": "USD/shares",
+      "value": "5.61"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "CashAndCashEquivalentsAtCarryingValue",
+      "end": "2021-09-25",
+      "fact_id": "cash",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": null,
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "34940000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "LongTermDebtCurrent",
+      "end": "2021-09-25",
+      "fact_id": "current_long_term_debt",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": null,
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "9613000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "LongTermDebtNoncurrent",
+      "end": "2021-09-25",
+      "fact_id": "noncurrent_long_term_debt",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": null,
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "109106000000"
+    },
+    {
+      "accession": "0000320193-21-000105",
+      "concept": "NetCashProvidedByUsedInOperatingActivities",
+      "end": "2021-09-25",
+      "fact_id": "operating_cash_flow",
+      "filed": "2021-10-29",
+      "form": "10-K",
+      "start": "2020-09-27",
+      "taxonomy": "us-gaap",
+      "unit": "USD",
+      "value": "104038000000"
+    }
+  ],
+  "fiscal_year": 2021,
+  "schema_version": "0.1.0",
+  "source_class": "PUBLIC_SEC_XBRL_EXCERPT_NOT_ATTESTED",
+  "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json"
+}

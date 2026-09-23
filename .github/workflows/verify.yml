@@ -45,6 +45,11 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.finance_workpaper_cli build fixtures/finance-workpaper/case.json --output /tmp/finance-workpaper-passport.json
           PYTHONPATH=src python -m outcome_fabric.finance_workpaper_cli verify fixtures/finance-workpaper/case.json /tmp/finance-workpaper-passport.json
+      - name: Run provider-neutral WorkpaperCI regression gate
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.workpaperci_cli run fixtures/workpaperci/benchmark.json --output /tmp/workpaperci-scorecard.json
+          PYTHONPATH=src python -m outcome_fabric.workpaperci_cli verify fixtures/workpaperci/benchmark.json /tmp/workpaperci-scorecard.json
+          PYTHONPATH=src python -m outcome_fabric.workpaperci_cli gate fixtures/workpaperci/benchmark.json --output /tmp/workpaperci-gate.json
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry

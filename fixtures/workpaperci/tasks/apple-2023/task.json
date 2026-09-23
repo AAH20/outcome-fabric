@@ -1,0 +1,12 @@
+{
+  "protocol": {
+    "path": "protocol.json",
+    "sha256": "63ceafc657ca0f2a71b1326cafd7fc3f8f0dc6bdff57982f15809c22210f91ae"
+  },
+  "schema_version": "0.1.0",
+  "source": {
+    "path": "source.json",
+    "sha256": "02abd657e3169f4377e8ff7e447977fc25b510b41ca4e3080f7075ccf2669503"
+  },
+  "task_id": "apple-fy2023"
+}

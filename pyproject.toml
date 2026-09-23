@@ -1,6 +1,6 @@
 [project]
 name = "outcome-fabric"
-version = "0.8.0"
+version = "0.9.0"
 description = "Inspectable agentic AI platform for outcome planning, AI FinOps, and governance evidence"
 requires-python = ">=3.11"
 
@@ -14,6 +14,7 @@ outcomebench-registry = "outcome_fabric.registry_cli:main"
 outcomebench-replay = "outcome_fabric.predictions_cli:main"
 outcomebench-fieldlab = "outcome_fabric.fieldlab_cli:main"
 finance-workpaper = "outcome_fabric.finance_workpaper_cli:main"
+workpaperci = "outcome_fabric.workpaperci_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

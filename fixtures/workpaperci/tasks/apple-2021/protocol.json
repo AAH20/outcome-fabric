@@ -1,0 +1,24 @@
+{
+  "derived_claims": {
+    "operating_margin_pct": {
+      "decimal_places": 2,
+      "formula": "100 * operating_income / revenue",
+      "unit": "percent"
+    }
+  },
+  "period_end": "2021-09-25",
+  "protocol_id": "sec-issuer-facts-v1",
+  "publication_policy": "SYNTHETIC_REVIEW_DEMO_ONLY",
+  "required_fact_ids": [
+    "revenue",
+    "operating_income",
+    "net_income",
+    "diluted_eps",
+    "cash",
+    "current_long_term_debt",
+    "noncurrent_long_term_debt",
+    "operating_cash_flow"
+  ],
+  "schema_version": "0.1.0",
+  "source_class": "PUBLIC_SEC_XBRL_EXCERPT_NOT_ATTESTED"
+}

@@ -2,6 +2,18 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## WorkpaperCI: finance-agent regression checks
+
+WorkpaperCI now runs a provider-neutral **recorded-output** comparison over five locked Apple filing tasks (FY2021–2025). It checks eight reported figures and operating-margin arithmetic per task, fails a candidate that adds wrong claims, and recomputes its scorecard offline. The included submissions and costs are synthetic; no agent code or human review runs in CI.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.workpaperci_cli run fixtures/workpaperci/benchmark.json --output /tmp/workpaperci-scorecard.json
+PYTHONPATH=src python3 -m outcome_fabric.workpaperci_cli verify fixtures/workpaperci/benchmark.json /tmp/workpaperci-scorecard.json
+PYTHONPATH=src python3 -m outcome_fabric.workpaperci_cli gate fixtures/workpaperci/benchmark.json
+```
+
+See the [submission contract, high-contrast architecture, and claim limits](docs/WORKPAPERCI.md).
+
 ## Finance Workpaper Passport: public-data reference
 
 The finance vertical checks an issuer data pack against a locked excerpt of Apple's FY2025 SEC XBRL facts, binds a **simulated** review to the exact workpaper version, calculates synthetic all-in cost, and verifies the Passport offline. Its nine checks cover fact identity, citation, unit, period, value and operating-margin arithmetic. This is a public-data reference with invented review and cost inputs, not an investment recommendation or a production finance-agent integration.

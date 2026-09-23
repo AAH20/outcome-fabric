@@ -1,0 +1,38 @@
+{
+  "baseline": {
+    "path": "submissions/baseline.json",
+    "sha256": "ec375de9aae715b1954c2cae1d6c3f3c15f1dd081a89344292062c725ca5f9f0"
+  },
+  "benchmark_id": "apple-public-filing-regression-v1",
+  "candidate": {
+    "path": "submissions/candidate.json",
+    "sha256": "63fc3ccd5d67060684c944edfe27bd1a1adeda360773cc693033567cec6e16f8"
+  },
+  "gate": {
+    "minimum_candidate_clean_tasks": 5,
+    "no_new_failed_claims_per_task": true
+  },
+  "schema_version": "0.1.0",
+  "tasks": [
+    {
+      "path": "tasks/apple-2021/task.json",
+      "sha256": "7d8d8a82b1f9654c496c944b6beca68dd378d6c4d8bd62293549e6ccefc837d9"
+    },
+    {
+      "path": "tasks/apple-2022/task.json",
+      "sha256": "41199aa10a1cd28ab5431a0a7b5f8b7688760e5bceeb274f1f0f866a8d2ef549"
+    },
+    {
+      "path": "tasks/apple-2023/task.json",
+      "sha256": "a3cc455b5815d3c3f2a252721e9624e6e6b96a2a8471b1b781a696e0a84eb608"
+    },
+    {
+      "path": "tasks/apple-2024/task.json",
+      "sha256": "276d022c2ebd78b9aacf518b5ba6131476e339166f5577b756f1905c35e6529c"
+    },
+    {
+      "path": "tasks/apple-2025/task.json",
+      "sha256": "508cdb9814c2f450aa60fa8db2e5ff779de0f43e14cad2b2407aef5906df560f"
+    }
+  ]
+}
