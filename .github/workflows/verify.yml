@@ -28,3 +28,12 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.outcomebench_cli run fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json --output /tmp/outcomebench-scorecard.json
           PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-scorecard.json
+      - name: Execute local adapters and verify full OutcomeBench path
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.simulation_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-simulation
+          PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify /tmp/outcomebench-simulation/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-simulation/scorecard.json
+      - name: Verify public synthetic registry is reproducible
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry
+          diff -u registry/RESULTS.md /tmp/outcomebench-registry/RESULTS.md
+          diff -u registry/results.json /tmp/outcomebench-registry/results.json

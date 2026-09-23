@@ -1,0 +1,268 @@
+{
+  "schema_version": "0.1.0",
+  "id": "support-rules-40",
+  "protocol_id": "outcomebench-support",
+  "currency": "USD",
+  "cases": [
+    {
+      "id": "S001",
+      "category": "billing",
+      "prompt": "Please send an invoice copy for my order",
+      "expected_resolution": "invoice_copy"
+    },
+    {
+      "id": "S002",
+      "category": "billing",
+      "prompt": "My wrong invoice needs correction",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S003",
+      "category": "billing",
+      "prompt": "I request a refund for an overcharge",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S004",
+      "category": "billing",
+      "prompt": "There is a duplicate charge on my card",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S005",
+      "category": "technical",
+      "prompt": "I need a password reset",
+      "expected_resolution": "password_reset"
+    },
+    {
+      "id": "S006",
+      "category": "technical",
+      "prompt": "My account locked after failed login",
+      "expected_resolution": "unlock"
+    },
+    {
+      "id": "S007",
+      "category": "general",
+      "prompt": "Where is my delivery tracking",
+      "expected_resolution": "tracking"
+    },
+    {
+      "id": "S008",
+      "category": "general",
+      "prompt": "My late delivery needs an update",
+      "expected_resolution": "delivery_update"
+    },
+    {
+      "id": "S009",
+      "category": "general",
+      "prompt": "Please escalate this complex request",
+      "expected_resolution": "escalate"
+    },
+    {
+      "id": "S010",
+      "category": "billing",
+      "prompt": "I need a refund for a wrong invoice",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S011",
+      "category": "billing",
+      "prompt": "Please send an invoice copy for my order",
+      "expected_resolution": "invoice_copy"
+    },
+    {
+      "id": "S012",
+      "category": "billing",
+      "prompt": "My wrong invoice needs correction",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S013",
+      "category": "billing",
+      "prompt": "I request a refund for an overcharge",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S014",
+      "category": "billing",
+      "prompt": "There is a duplicate charge on my card",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S015",
+      "category": "technical",
+      "prompt": "I need a password reset",
+      "expected_resolution": "password_reset"
+    },
+    {
+      "id": "S016",
+      "category": "technical",
+      "prompt": "My account locked after failed login",
+      "expected_resolution": "unlock"
+    },
+    {
+      "id": "S017",
+      "category": "general",
+      "prompt": "Where is my delivery tracking",
+      "expected_resolution": "tracking"
+    },
+    {
+      "id": "S018",
+      "category": "general",
+      "prompt": "My late delivery needs an update",
+      "expected_resolution": "delivery_update"
+    },
+    {
+      "id": "S019",
+      "category": "general",
+      "prompt": "Please escalate this complex request",
+      "expected_resolution": "escalate"
+    },
+    {
+      "id": "S020",
+      "category": "billing",
+      "prompt": "I need a refund for a wrong invoice",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S021",
+      "category": "billing",
+      "prompt": "Please send an invoice copy for my order",
+      "expected_resolution": "invoice_copy"
+    },
+    {
+      "id": "S022",
+      "category": "billing",
+      "prompt": "My wrong invoice needs correction",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S023",
+      "category": "billing",
+      "prompt": "I request a refund for an overcharge",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S024",
+      "category": "billing",
+      "prompt": "There is a duplicate charge on my card",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S025",
+      "category": "technical",
+      "prompt": "I need a password reset",
+      "expected_resolution": "password_reset"
+    },
+    {
+      "id": "S026",
+      "category": "technical",
+      "prompt": "My account locked after failed login",
+      "expected_resolution": "unlock"
+    },
+    {
+      "id": "S027",
+      "category": "general",
+      "prompt": "Where is my delivery tracking",
+      "expected_resolution": "tracking"
+    },
+    {
+      "id": "S028",
+      "category": "general",
+      "prompt": "My late delivery needs an update",
+      "expected_resolution": "delivery_update"
+    },
+    {
+      "id": "S029",
+      "category": "general",
+      "prompt": "Please escalate this complex request",
+      "expected_resolution": "escalate"
+    },
+    {
+      "id": "S030",
+      "category": "billing",
+      "prompt": "I need a refund for a wrong invoice",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S031",
+      "category": "billing",
+      "prompt": "Please send an invoice copy for my order",
+      "expected_resolution": "invoice_copy"
+    },
+    {
+      "id": "S032",
+      "category": "billing",
+      "prompt": "My wrong invoice needs correction",
+      "expected_resolution": "invoice_correction"
+    },
+    {
+      "id": "S033",
+      "category": "billing",
+      "prompt": "I request a refund for an overcharge",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S034",
+      "category": "billing",
+      "prompt": "There is a duplicate charge on my card",
+      "expected_resolution": "refund"
+    },
+    {
+      "id": "S035",
+      "category": "technical",
+      "prompt": "I need a password reset",
+      "expected_resolution": "password_reset"
+    },
+    {
+      "id": "S036",
+      "category": "technical",
+      "prompt": "My account locked after failed login",
+      "expected_resolution": "unlock"
+    },
+    {
+      "id": "S037",
+      "category": "general",
+      "prompt": "Where is my delivery tracking",
+      "expected_resolution": "tracking"
+    },
+    {
+      "id": "S038",
+      "category": "general",
+      "prompt": "My late delivery needs an update",
+      "expected_resolution": "delivery_update"
+    },
+    {
+      "id": "S039",
+      "category": "general",
+      "prompt": "Please escalate this complex request",
+      "expected_resolution": "escalate"
+    },
+    {
+      "id": "S040",
+      "category": "billing",
+      "prompt": "I need a refund for a wrong invoice",
+      "expected_resolution": "invoice_correction"
+    }
+  ],
+  "costs": {
+    "baseline": {
+      "inference": "0.00",
+      "retrieval": "0.00",
+      "infrastructure": "100.00",
+      "human_qa": "400.00",
+      "rework": "120.00",
+      "operations": "100.00",
+      "allocated_setup": "80.00"
+    },
+    "candidate": {
+      "inference": "60.00",
+      "retrieval": "20.00",
+      "infrastructure": "80.00",
+      "human_qa": "150.00",
+      "rework": "50.00",
+      "operations": "80.00",
+      "allocated_setup": "60.00"
+    }
+  }
+}

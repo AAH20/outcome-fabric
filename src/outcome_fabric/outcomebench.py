@@ -29,11 +29,13 @@ def _digest(value: bytes) -> str:
 def _protocol(path: Path) -> tuple[dict[str, Any], str]:
     raw = Path(path).read_bytes()
     value = json.loads(raw)
-    required = {"schema_version", "id", "version", "workload", "passport_protocol", "minimum_eligible_cases_per_arm", "minimum_acceptance_rate", "claim_policy"}
+    required = {"schema_version", "id", "version", "workload", "passport_protocol", "minimum_eligible_cases_per_arm", "minimum_acceptance_rate", "case_independence", "claim_policy"}
     if not isinstance(value, dict) or set(value) != required:
         raise ValueError("benchmark protocol has missing or unexpected fields")
     if value["schema_version"] != BENCH_VERSION or value["claim_policy"] != "DESCRIPTIVE_ONLY":
         raise ValueError("unsupported benchmark protocol or claim policy")
+    if value["case_independence"] not in ("DECLARED_INDEPENDENT", "NOT_ESTABLISHED"):
+        raise ValueError("case_independence must be declared or not established")
     for key in ("id", "version", "workload"):
         if not isinstance(value[key], str) or not value[key].strip():
             raise ValueError(f"protocol.{key} must be nonempty text")
@@ -83,10 +85,11 @@ def run(manifest_path: Path, protocol_path: Path) -> dict[str, Any]:
         comparison_status = "DEMO_ONLY_INSUFFICIENT_SAMPLE"
     else:
         comparison_status = "DESCRIPTIVE_COMPARISON_ONLY"
-    intervals = {
-        name: _wilson(arm["accepted_cases"], arm["eligible_cases"])
-        for name, arm in metrics.items()
-    }
+    independence_declared = protocol["case_independence"] == "DECLARED_INDEPENDENT"
+    intervals = (
+        {name: _wilson(arm["accepted_cases"], arm["eligible_cases"]) for name, arm in metrics.items()}
+        if independence_declared else None
+    )
     body = {
         "benchmark_schema_version": BENCH_VERSION,
         "protocol_id": protocol["id"],
@@ -105,6 +108,7 @@ def run(manifest_path: Path, protocol_path: Path) -> dict[str, Any]:
         },
         "metrics": metrics,
         "acceptance_rate_wilson_95": intervals,
+        "interval_status": "ILLUSTRATIVE_INDEPENDENCE_DECLARED" if independence_declared else "NOT_REPORTED_INDEPENDENCE_NOT_ESTABLISHED",
         "descriptive_cost_per_accepted_resolution_delta": (
             passport["comparison"]["cost_per_accepted_resolution_delta"] if sample_sufficient and case_mix_identical else None
         ),
@@ -112,7 +116,8 @@ def run(manifest_path: Path, protocol_path: Path) -> dict[str, Any]:
         "production_recommendation": "NONE",
         "limitations": [
             "The runner reads recorded exports; it does not execute an agent or authenticate a source.",
-            "Acceptance intervals describe sample uncertainty only; costs and causal effects have no interval here.",
+            "Wilson intervals are reported only if case independence is declared, not authenticated; repeated cases suppress them.",
+            "Costs and causal effects have no uncertainty interval here.",
             "A passing quality or sample gate is not evidence of safety, customer approval, or production readiness.",
         ],
     }

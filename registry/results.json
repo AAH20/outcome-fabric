@@ -1,0 +1,31 @@
+{
+  "ranking_policy": "NO_CROSS_PROTOCOL_OR_EVIDENCE_GRADE_RANKING",
+  "results": [
+    {
+      "baseline": {
+        "acceptance_rate": 0.5,
+        "accepted_cases": 20,
+        "cost_per_accepted_resolution": 40.0,
+        "eligible_cases": 40,
+        "total_attributable_cost": 800.0
+      },
+      "candidate": {
+        "acceptance_rate": 1.0,
+        "accepted_cases": 40,
+        "cost_per_accepted_resolution": 12.5,
+        "eligible_cases": 40,
+        "total_attributable_cost": 500.0
+      },
+      "comparison_status": "DESCRIPTIVE_COMPARISON_ONLY",
+      "descriptive_cost_delta": 27.5,
+      "id": "support_rules_demo",
+      "label": "Support rules reference",
+      "protocol_id": "outcomebench-support",
+      "protocol_version": "0.1.0",
+      "scorecard_sha256": "6f6785c0dcc57d2f663ddc6c65bc2685cd55e23a93796b6bafbcc3d87918f02d",
+      "track": "SYNTHETIC"
+    }
+  ],
+  "schema_version": "0.1.0",
+  "scope": "SYNTHETIC_REFERENCE_ONLY_NOT_REAL_CUSTOMER_OUTCOMES"
+}

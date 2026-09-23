@@ -4,14 +4,18 @@
 
 ## OutcomeBench: recorded-export reference runner
 
-OutcomeBench now has a versioned customer-support protocol and a **one-command local benchmark** over the synthetic Evidence Bridge fixture. It emits a scope-limited scorecard with accepted-resolution cost, acceptance-rate intervals, sample and quality gates, and an offline verifier. The five-case-per-arm fixture is **below the protocol's 30-case minimum**, so its result is labeled `DEMO_ONLY_INSUFFICIENT_SAMPLE` and carries no production recommendation.
+OutcomeBench has a versioned customer-support protocol, a recorded-export benchmark, and an **executable local synthetic adapter demo**. Both paths emit a scope-limited scorecard with accepted-resolution cost, sample and quality gates, and an offline verifier. The five-case-per-arm export fixture is **below the protocol's 30-case minimum**, so its result is labeled `DEMO_ONLY_INSUFFICIENT_SAMPLE`. The executable demo uses 40 invented cases per arm and reaches the descriptive sample gate; it still carries no production recommendation. Its cases repeat templates, so independence is not established and confidence intervals are withheld.
 
 ```bash
 PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli run fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json --output /tmp/outcomebench-scorecard.json
 PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli verify fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-scorecard.json
+PYTHONPATH=src python3 -m outcome_fabric.simulation_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json generated/support-rules-40
+PYTHONPATH=src python3 -m outcome_fabric.registry_cli . registry
 ```
 
-See [the OutcomeBench architecture and release gates](docs/OUTCOMEBENCH_ARCHITECTURE.md). This first slice replays recorded exports; it does **not** execute an agent, integrate with agent frameworks, authenticate source systems, establish causal lift, operate a public registry, or provide a commercial service.
+Choose a new directory for each synthetic run; the runner refuses to overwrite an existing one.
+
+The [public synthetic results index](registry/RESULTS.md) is generated from reviewed repository fixtures and checked in CI. It does not accept customer-supplied results. The Python adapter API can run caller-provided local callables, which are **not sandboxed**; use only trusted code. See [the OutcomeBench architecture and release gates](docs/OUTCOMEBENCH_ARCHITECTURE.md). This release does **not** integrate with live agent frameworks, authenticate customer source systems, establish causal lift, or provide a commercial service.
 
 ## Outcome Evidence Bridge: local support-export reference
 

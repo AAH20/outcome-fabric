@@ -12,5 +12,6 @@
   },
   "minimum_eligible_cases_per_arm": 30,
   "minimum_acceptance_rate": 0.8,
+  "case_independence": "NOT_ESTABLISHED",
   "claim_policy": "DESCRIPTIVE_ONLY"
 }

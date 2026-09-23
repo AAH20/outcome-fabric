@@ -1,0 +1,7 @@
+{
+  "id": "support_rules_demo",
+  "label": "Support rules reference",
+  "track": "SYNTHETIC",
+  "scenario": "fixtures/simulation/support-rules-40.json",
+  "protocol": "protocols/support-accepted-resolution-v1.json"
+}
