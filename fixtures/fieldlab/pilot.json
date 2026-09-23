@@ -1,0 +1,24 @@
+{
+  "expected_case_counts": {
+    "baseline": 40,
+    "candidate": 40
+  },
+  "expected_source_rows": {
+    "cases": 80,
+    "costs": 14,
+    "decisions": 80
+  },
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "c4c911aa4b10e6f13da73d9b42071819d1fb90698a692b2870dba6aa1833831a"
+  },
+  "permission_declaration": "SYNTHETIC_NO_CUSTOMER_DATA",
+  "pilot_id": "synthetic-support-fieldlab-v1",
+  "protocol": {
+    "path": "protocol.json",
+    "sha256": "7e6121cba4d5e59046b81d147e3e81362a2d495886a9236ba9f1c5dca3010242"
+  },
+  "publication_policy": "PRIVATE_ONLY_NO_AUTOMATIC_EXPORT",
+  "purpose": "Exercise private pilot preflight, reconciliation, scorecard, and local verification over invented support data.",
+  "schema_version": "0.1.0"
+}

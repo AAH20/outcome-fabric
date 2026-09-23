@@ -2,6 +2,18 @@
 
 **Compile an enterprise objective into a feasible AI service plan, compare its unit economics, and preserve an inspectable decision receipt.**
 
+## OutcomeBench Field Lab: private synthetic pilot
+
+Field Lab now provides a reproducible, read-only pilot workflow over local support exports. It locks the Bridge manifest and benchmark protocol, checks declared case and source-row counts, runs reconciliation and scoring, and recomputes the private aggregate package offline. The bundled 40-case-per-arm pilot is synthetic; it establishes local reproducibility only.
+
+```bash
+PYTHONPATH=src python3 -m outcome_fabric.fieldlab_cli preflight fixtures/fieldlab/pilot.json
+PYTHONPATH=src python3 -m outcome_fabric.fieldlab_cli run fixtures/fieldlab/pilot.json --output /tmp/fieldlab-private.json
+PYTHONPATH=src python3 -m outcome_fabric.fieldlab_cli verify fixtures/fieldlab/pilot.json /tmp/fieldlab-private.json
+```
+
+The tool does not authenticate customer permission or export origin, perform independent review, or authorize publication. Keep customer-derived inputs and packages private. See [the Field Lab architecture and pilot contract](docs/FIELD_LAB.md).
+
 ## OutcomeBench: recorded-export reference runner
 
 OutcomeBench has a versioned customer-support protocol, a recorded-export benchmark, and an **executable local synthetic adapter demo**. Both paths emit a scope-limited scorecard with accepted-resolution cost, sample and quality gates, and an offline verifier. The five-case-per-arm export fixture is **below the protocol's 30-case minimum**, so its result is labeled `DEMO_ONLY_INSUFFICIENT_SAMPLE`. The executable demo uses 40 invented cases per arm and reaches the descriptive sample gate; it still carries no production recommendation. Its cases repeat templates, so independence is not established and confidence intervals are withheld.

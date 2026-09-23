@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1.0",
+  "id": "outcomebench-support",
+  "version": "0.1.0",
+  "workload": "AI-assisted customer support",
+  "passport_protocol": {
+    "id": "support-accepted-resolution",
+    "version": "1.0.0",
+    "acceptance_rule": "Resolved without disqualifying rework within seven days",
+    "measurement_window": "Synthetic thirty-day window",
+    "currency": "USD"
+  },
+  "minimum_eligible_cases_per_arm": 30,
+  "minimum_acceptance_rate": 0.8,
+  "case_independence": "NOT_ESTABLISHED",
+  "claim_policy": "DESCRIPTIVE_ONLY"
+}

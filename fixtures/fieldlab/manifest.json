@@ -1,0 +1,32 @@
+{
+  "baseline_status": "DECLARED_LOCKED_NOT_AUTHENTICATED",
+  "evidence_class": "SYNTHETIC",
+  "passport_id": "synthetic-support-rules-40",
+  "permission_status": "DECLARED_BY_OPERATOR_NOT_VERIFIED",
+  "protocol": {
+    "acceptance_rule": "Resolved without disqualifying rework within seven days",
+    "currency": "USD",
+    "id": "support-accepted-resolution",
+    "measurement_window": "Synthetic thirty-day window",
+    "version": "1.0.0"
+  },
+  "schema_version": "0.1.0",
+  "sources": {
+    "cases": {
+      "path": "cases.csv",
+      "sha256": "3198aeb697b85326b3f44b23b3e11c91ffbe25236e6c3d3d2ca84c399750bb96"
+    },
+    "costs": {
+      "path": "costs.csv",
+      "sha256": "72d4dbeaeb536f06ac6ac0c4b4e5843d5d94a878ab7fc8931ad20629fc45f793"
+    },
+    "decisions": {
+      "path": "decisions.csv",
+      "sha256": "880418d3a40d4dfbfd2d47423e3bfa07d2002a153a969f125f7915e41dc3d8ba"
+    }
+  },
+  "subject": {
+    "deployment": "Local synthetic adapter simulation",
+    "workload": "AI-assisted customer support"
+  }
+}

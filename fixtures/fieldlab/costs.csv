@@ -1,0 +1,15 @@
+arm,category,amount,currency
+baseline,allocated_setup,80.00,USD
+baseline,human_qa,400.00,USD
+baseline,inference,0.00,USD
+baseline,infrastructure,100.00,USD
+baseline,operations,100.00,USD
+baseline,retrieval,0.00,USD
+baseline,rework,120.00,USD
+candidate,allocated_setup,60.00,USD
+candidate,human_qa,150.00,USD
+candidate,inference,60.00,USD
+candidate,infrastructure,80.00,USD
+candidate,operations,80.00,USD
+candidate,retrieval,20.00,USD
+candidate,rework,50.00,USD

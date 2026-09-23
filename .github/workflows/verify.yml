@@ -36,6 +36,11 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.predictions_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json fixtures/simulation/support-rules-40-predictions.json /tmp/outcomebench-replay
           PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify /tmp/outcomebench-replay/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-replay/scorecard.json
+      - name: Preflight and verify private synthetic Field Lab package
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.fieldlab_cli preflight fixtures/fieldlab/pilot.json --output /tmp/fieldlab-preflight.json
+          PYTHONPATH=src python -m outcome_fabric.fieldlab_cli run fixtures/fieldlab/pilot.json --output /tmp/fieldlab-private.json
+          PYTHONPATH=src python -m outcome_fabric.fieldlab_cli verify fixtures/fieldlab/pilot.json /tmp/fieldlab-private.json
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry
