@@ -1,0 +1,330 @@
+{
+  "schema_version": "0.1.0",
+  "scenario_sha256": "d532c96f77316a88faea2b3b204065ba555970cf60b078cf4b9053567adf87c8",
+  "arms": {
+    "baseline": [
+      {
+        "case_id": "S001",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S002",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S003",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S004",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S005",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S006",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S007",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S008",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S009",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S010",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S011",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S012",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S013",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S014",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S015",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S016",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S017",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S018",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S019",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S020",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S021",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S022",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S023",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S024",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S025",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S026",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S027",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S028",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S029",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S030",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S031",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S032",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S033",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S034",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S035",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S036",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S037",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S038",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S039",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S040",
+        "resolution_code": "refund"
+      }
+    ],
+    "candidate": [
+      {
+        "case_id": "S001",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S002",
+        "resolution_code": "invoice_correction"
+      },
+      {
+        "case_id": "S003",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S004",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S005",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S006",
+        "resolution_code": "unlock"
+      },
+      {
+        "case_id": "S007",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S008",
+        "resolution_code": "delivery_update"
+      },
+      {
+        "case_id": "S009",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S010",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S011",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S012",
+        "resolution_code": "invoice_correction"
+      },
+      {
+        "case_id": "S013",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S014",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S015",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S016",
+        "resolution_code": "unlock"
+      },
+      {
+        "case_id": "S017",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S018",
+        "resolution_code": "delivery_update"
+      },
+      {
+        "case_id": "S019",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S020",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S021",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S022",
+        "resolution_code": "invoice_correction"
+      },
+      {
+        "case_id": "S023",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S024",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S025",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S026",
+        "resolution_code": "unlock"
+      },
+      {
+        "case_id": "S027",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S028",
+        "resolution_code": "delivery_update"
+      },
+      {
+        "case_id": "S029",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S030",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S031",
+        "resolution_code": "invoice_copy"
+      },
+      {
+        "case_id": "S032",
+        "resolution_code": "invoice_correction"
+      },
+      {
+        "case_id": "S033",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S034",
+        "resolution_code": "refund"
+      },
+      {
+        "case_id": "S035",
+        "resolution_code": "password_reset"
+      },
+      {
+        "case_id": "S036",
+        "resolution_code": "unlock"
+      },
+      {
+        "case_id": "S037",
+        "resolution_code": "tracking"
+      },
+      {
+        "case_id": "S038",
+        "resolution_code": "delivery_update"
+      },
+      {
+        "case_id": "S039",
+        "resolution_code": "escalate"
+      },
+      {
+        "case_id": "S040",
+        "resolution_code": "refund"
+      }
+    ]
+  }
+}

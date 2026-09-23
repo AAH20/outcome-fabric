@@ -14,8 +14,9 @@ class RegistryTests(unittest.TestCase):
     def test_checked_in_registry_is_reproducible_and_synthetic_only(self):
         index, markdown = build_registry(ROOT)
         self.assertEqual(index["scope"], "SYNTHETIC_REFERENCE_ONLY_NOT_REAL_CUSTOMER_OUTCOMES")
-        self.assertEqual(len(index["results"]), 1)
-        self.assertEqual(index["results"][0]["track"], "SYNTHETIC")
+        self.assertEqual(len(index["results"]), 2)
+        self.assertTrue(all(item["track"] == "SYNTHETIC" for item in index["results"]))
+        self.assertEqual({item["execution_mode"] for item in index["results"]}, {"PREDICTION_REPLAY", "BUILTIN_ADAPTERS"})
         self.assertEqual(markdown, (ROOT / "registry/RESULTS.md").read_text(encoding="utf-8"))
         self.assertEqual(index, json.loads((ROOT / "registry/results.json").read_text(encoding="utf-8")))
         with tempfile.TemporaryDirectory() as directory:

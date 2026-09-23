@@ -8,6 +8,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+from .predictions import replay_predictions
 from .simulation import run_simulation
 
 
@@ -32,7 +33,8 @@ def build_registry(root: Path) -> tuple[dict[str, Any], str]:
         if entry_path.is_symlink() or not entry_path.resolve().is_relative_to(root):
             raise ValueError("registry submission must be a regular file within the repository")
         entry = json.loads(entry_path.read_text(encoding="utf-8"))
-        if not isinstance(entry, dict) or set(entry) != {"id", "label", "track", "scenario", "protocol"}:
+        required = {"id", "label", "track", "scenario", "protocol"}
+        if not isinstance(entry, dict) or not required <= set(entry) or set(entry) - required - {"predictions"}:
             raise ValueError(f"invalid registry submission: {entry_path.name}")
         if entry["track"] != "SYNTHETIC":
             raise ValueError("public registry accepts synthetic submissions only")
@@ -44,8 +46,12 @@ def build_registry(root: Path) -> tuple[dict[str, Any], str]:
         ids.add(submission_id)
         scenario = _local_json_path(root, entry["scenario"])
         protocol = _local_json_path(root, entry["protocol"])
+        predictions_path = _local_json_path(root, entry["predictions"]) if "predictions" in entry else None
         with tempfile.TemporaryDirectory() as directory:
-            run_simulation(scenario, protocol, Path(directory) / "run")
+            if predictions_path is None:
+                run_simulation(scenario, protocol, Path(directory) / "run")
+            else:
+                replay_predictions(scenario, protocol, predictions_path, Path(directory) / "run")
             scorecard = json.loads((Path(directory) / "run/scorecard.json").read_text(encoding="utf-8"))
         if scorecard["track"] != "SYNTHETIC":
             raise ValueError("submission produced a non-synthetic scorecard")
@@ -53,6 +59,7 @@ def build_registry(root: Path) -> tuple[dict[str, Any], str]:
             "id": submission_id,
             "label": label.strip(),
             "track": scorecard["track"],
+            "execution_mode": "PREDICTION_REPLAY" if predictions_path else "BUILTIN_ADAPTERS",
             "protocol_id": scorecard["protocol_id"],
             "protocol_version": scorecard["protocol_version"],
             "comparison_status": scorecard["comparison_status"],
@@ -73,13 +80,13 @@ def build_registry(root: Path) -> tuple[dict[str, Any], str]:
         "Every result below is a reproducible **synthetic reference** with invented cases and costs. "
         "The table is not a vendor ranking, customer outcome, causal effect, or production recommendation.",
         "",
-        "| Run | Protocol | Baseline accepted | Candidate accepted | Baseline cost / accepted | Candidate cost / accepted | Status |",
-        "| --- | --- | ---: | ---: | ---: | ---: | --- |",
+        "| Run | Mode | Protocol | Baseline accepted | Candidate accepted | Baseline cost / accepted | Candidate cost / accepted | Status |",
+        "| --- | --- | --- | ---: | ---: | ---: | ---: | --- |",
     ]
     for item in results:
         baseline, candidate = item["baseline"], item["candidate"]
         lines.append(
-            f"| {item['label']} | {item['protocol_id']} {item['protocol_version']} | "
+            f"| {item['label']} | {item['execution_mode']} | {item['protocol_id']} {item['protocol_version']} | "
             f"{baseline['accepted_cases']}/{baseline['eligible_cases']} | "
             f"{candidate['accepted_cases']}/{candidate['eligible_cases']} | "
             f"{baseline['cost_per_accepted_resolution']:.4f} | "

@@ -32,6 +32,10 @@ jobs:
         run: |
           PYTHONPATH=src python -m outcome_fabric.simulation_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-simulation
           PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify /tmp/outcomebench-simulation/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-simulation/scorecard.json
+      - name: Replay framework-neutral predictions without executing submitter code
+        run: |
+          PYTHONPATH=src python -m outcome_fabric.predictions_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json fixtures/simulation/support-rules-40-predictions.json /tmp/outcomebench-replay
+          PYTHONPATH=src python -m outcome_fabric.outcomebench_cli verify /tmp/outcomebench-replay/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-replay/scorecard.json
       - name: Verify public synthetic registry is reproducible
         run: |
           PYTHONPATH=src python -m outcome_fabric.registry_cli . /tmp/outcomebench-registry

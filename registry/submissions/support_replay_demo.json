@@ -1,0 +1,8 @@
+{
+  "id": "support_replay_demo",
+  "label": "Support prediction replay",
+  "track": "SYNTHETIC",
+  "scenario": "fixtures/simulation/support-rules-40.json",
+  "protocol": "protocols/support-accepted-resolution-v1.json",
+  "predictions": "fixtures/simulation/support-rules-40-predictions.json"
+}

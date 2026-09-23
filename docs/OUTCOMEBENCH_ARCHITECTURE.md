@@ -1,6 +1,6 @@
 # OutcomeBench: architecture and implementation plan
 
-**Status:** the recorded-export runner, built-in local synthetic adapters, support protocol, and a static synthetic-only results index are implemented in this monorepo. Live framework adapters, isolated execution of untrusted agents, a customer-result registry, reviewer workflow, and commercial service have **not** been implemented. The diagrams below describe the target architecture; the present code exercises only local synthetic or operator-supplied export paths.
+**Status:** the recorded-export runner, built-in local synthetic adapters, framework-neutral prediction replay, support protocol, and a static synthetic-only results index are implemented in this monorepo. Live framework adapters, isolated execution of untrusted agents, a customer-result registry, reviewer workflow, and commercial service have **not** been implemented. The diagrams below describe the target architecture; the present code exercises only local synthetic or operator-supplied export paths.
 
 The implemented path is reproducible with:
 
@@ -12,6 +12,8 @@ PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli verify fixtures/bridge
 The run binds a protocol file digest to the Bridge package digest and checks sample size, candidate quality floor, and exact aggregate case-mix equality. Wilson intervals are reported only when case independence is explicitly declared; the repeated synthetic fixture does not establish it, so its intervals are withheld. The tiny export fixture fails the minimum sample gate. Even a larger passing run remains descriptive, unreviewed, and unsuitable for a production recommendation.
 
 The executable demonstration calls two deterministic Python adapters on the same 40 synthetic prompts. The adapter input excludes the fixture's expected resolution, and the generated CSVs contain only case IDs, categories, decisions, and modeled costs. This is a demonstration of execution and reconciliation, not a resistant-to-gaming evaluation: the fixture and adapters are public. The built-in adapters do not perform network calls. Caller-provided Python callables are trusted local code and are **not sandboxed**.
+
+The prediction replay path accepts a file containing exactly one resolution code per scenario case and arm, bound to the scenario's byte digest. It does not execute the submitting framework. The static public index reruns these synthetic predictions or the built-in adapters in CI, then publishes aggregate scorecards only. See [the submission contract](OUTCOMEBENCH_SUBMISSIONS.md).
 
 **Thesis:** benchmark the cost and quality of *accepted work*, not just model output or endpoint speed. Begin with AI-assisted customer support, where each eligible case has a prespecified acceptance decision, rework window, case category, and attributable cost. Other workload protocols may be added only after their outcome definitions can be reproduced and challenged.
 

@@ -10,6 +10,31 @@
         "total_attributable_cost": 800.0
       },
       "candidate": {
+        "acceptance_rate": 0.9,
+        "accepted_cases": 36,
+        "cost_per_accepted_resolution": 13.8889,
+        "eligible_cases": 40,
+        "total_attributable_cost": 500.0
+      },
+      "comparison_status": "DESCRIPTIVE_COMPARISON_ONLY",
+      "descriptive_cost_delta": 26.1111,
+      "execution_mode": "PREDICTION_REPLAY",
+      "id": "support_replay_demo",
+      "label": "Support prediction replay",
+      "protocol_id": "outcomebench-support",
+      "protocol_version": "0.1.0",
+      "scorecard_sha256": "77c44c7449aad1233f682102e116fdbd45acb919bc7a1c8dd8305cb64f82f3b7",
+      "track": "SYNTHETIC"
+    },
+    {
+      "baseline": {
+        "acceptance_rate": 0.5,
+        "accepted_cases": 20,
+        "cost_per_accepted_resolution": 40.0,
+        "eligible_cases": 40,
+        "total_attributable_cost": 800.0
+      },
+      "candidate": {
         "acceptance_rate": 1.0,
         "accepted_cases": 40,
         "cost_per_accepted_resolution": 12.5,
@@ -18,6 +43,7 @@
       },
       "comparison_status": "DESCRIPTIVE_COMPARISON_ONLY",
       "descriptive_cost_delta": 27.5,
+      "execution_mode": "BUILTIN_ADAPTERS",
       "id": "support_rules_demo",
       "label": "Support rules reference",
       "protocol_id": "outcomebench-support",

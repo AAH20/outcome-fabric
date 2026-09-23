@@ -10,12 +10,13 @@ OutcomeBench has a versioned customer-support protocol, a recorded-export benchm
 PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli run fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json --output /tmp/outcomebench-scorecard.json
 PYTHONPATH=src python3 -m outcome_fabric.outcomebench_cli verify fixtures/bridge/manifest.json protocols/support-accepted-resolution-v1.json /tmp/outcomebench-scorecard.json
 PYTHONPATH=src python3 -m outcome_fabric.simulation_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json generated/support-rules-40
+PYTHONPATH=src python3 -m outcome_fabric.predictions_cli fixtures/simulation/support-rules-40.json protocols/support-accepted-resolution-v1.json fixtures/simulation/support-rules-40-predictions.json generated/support-replay
 PYTHONPATH=src python3 -m outcome_fabric.registry_cli . registry
 ```
 
 Choose a new directory for each synthetic run; the runner refuses to overwrite an existing one.
 
-The [public synthetic results index](registry/RESULTS.md) is generated from reviewed repository fixtures and checked in CI. It does not accept customer-supplied results. The Python adapter API can run caller-provided local callables, which are **not sandboxed**; use only trusted code. See [the OutcomeBench architecture and release gates](docs/OUTCOMEBENCH_ARCHITECTURE.md). This release does **not** integrate with live agent frameworks, authenticate customer source systems, establish causal lift, or provide a commercial service.
+The [public synthetic results index](registry/RESULTS.md) is generated from reviewed repository fixtures and checked in CI. A framework can submit a bound prediction file and be scored without executing its code; see [the submission contract](docs/OUTCOMEBENCH_SUBMISSIONS.md). The public index does not accept customer-supplied results. The separate Python adapter API can run caller-provided local callables, which are **not sandboxed**; use only trusted code. See [the OutcomeBench architecture and release gates](docs/OUTCOMEBENCH_ARCHITECTURE.md). This release does **not** integrate with live agent frameworks, authenticate customer source systems, establish causal lift, or provide a commercial service.
 
 ## Outcome Evidence Bridge: local support-export reference
 

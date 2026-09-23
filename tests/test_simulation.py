@@ -33,7 +33,7 @@ class SimulationTests(unittest.TestCase):
         seen = []
 
         def baseline(case):
-            self.assertEqual(set(case), {"category", "prompt"})
+            self.assertEqual(set(case), {"case_id", "category", "prompt"})
             seen.append(case["prompt"])
             return baseline_adapter(case)
 

@@ -61,6 +61,7 @@ def run_simulation(
     protocol_path: Path,
     output_dir: Path,
     adapters: dict[str, Adapter] | None = None,
+    run_scope: str = "SYNTHETIC_LOCAL_ADAPTER_RUN_NOT_SANDBOXED",
 ) -> dict[str, Any]:
     """Execute adapters on synthetic prompts and materialize a verified run.
 
@@ -120,6 +121,8 @@ def run_simulation(
     selected = adapters if adapters is not None else {"baseline": baseline_adapter, "candidate": candidate_adapter}
     if set(selected) != set(ARMS) or any(not callable(adapter) for adapter in selected.values()):
         raise ValueError("adapters must provide callable baseline and candidate entries")
+    if run_scope not in ("SYNTHETIC_LOCAL_ADAPTER_RUN_NOT_SANDBOXED", "SYNTHETIC_PREDICTION_REPLAY_NOT_AGENT_EXECUTION"):
+        raise ValueError("unsupported run scope")
     output_dir = Path(output_dir)
     if output_dir.exists():
         raise ValueError("output directory must not already exist")
@@ -129,7 +132,7 @@ def run_simulation(
     for arm in ARMS:
         for case in validated:
             # Expected resolution is withheld from the adapter call.
-            adapter_input = {"category": case["category"], "prompt": case["prompt"]}
+            adapter_input = {"case_id": case["id"], "category": case["category"], "prompt": case["prompt"]}
             response = selected[arm](adapter_input)
             if not isinstance(response, str) or not response.strip():
                 raise ValueError("adapter must return a nonempty resolution code")
@@ -167,7 +170,7 @@ def run_simulation(
         "protocol_sha256": protocol_digest,
         "scorecard_sha256": scorecard["scorecard_sha256"],
         "adapter_names": {arm: getattr(selected[arm], "__name__", "callable") for arm in ARMS},
-        "scope": "SYNTHETIC_LOCAL_ADAPTER_RUN_NOT_SANDBOXED",
+        "scope": run_scope,
         "result": scorecard["comparison_status"],
     }
     (output_dir / "run-receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
