@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "clinic_id": "signed-handoff-stale-world",
+  "title": "The Signature Was Valid. The World Had Already Changed.",
+  "evidence_class": "SYNTHETIC",
+  "claim": {
+    "claim_id": "valid-signature-authorizes-execution",
+    "text": "A valid signed handoff authorizes the receiver to apply the requested effect."
+  },
+  "scenario": {
+    "task_id": "deploy-policy-bundle-17",
+    "signed_handoff": {
+      "signature_valid": true,
+      "nonce": "synthetic-nonce-17",
+      "sender_policy_epoch": 7,
+      "sender_resource_version": 41,
+      "expires_at": "2026-09-25T18:00:00Z"
+    },
+    "transport": {
+      "status_code": 200,
+      "response_body": "accepted"
+    },
+    "sender_state": {
+      "policy_epoch": 7,
+      "resource_version": 41,
+      "authorization": "AUTHORIZED"
+    },
+    "receiver_state": {
+      "policy_epoch": 8,
+      "resource_version": 42,
+      "authorization": "REVOKED"
+    },
+    "target_observation": {
+      "revalidated": false,
+      "event_id": null,
+      "effect_applied": false
+    }
+  },
+  "verifier": {
+    "origin_checks": [
+      "signature_valid=true"
+    ],
+    "legitimacy_checks": [
+      "receiver_requeries_policy_epoch",
+      "receiver_requeries_resource_version",
+      "receiver_checks_authorization",
+      "receiver_checks_nonce_and_expiry"
+    ],
+    "outcome_checks": [
+      "target_owned_event_id",
+      "effect_applied"
+    ]
+  },
+  "expected_result": {
+    "origin_verifier": "PASS",
+    "receiver_legitimacy_verifier": "FAIL",
+    "target_outcome_verifier": "FAIL",
+    "final_status": "UNRESOLVED",
+    "effect_allowed": false,
+    "failure_codes": [
+      "STALE_AUTHORIZATION_STATE",
+      "CURRENT_AUTHORIZATION_REVOKED",
+      "TARGET_OUTCOME_NOT_OBSERVED"
+    ]
+  },
+  "limitations": [
+    "All states, timestamps, transport receipts, and authorization values are invented synthetic inputs.",
+    "The fixture models a boolean signature result; it does not implement or prove a cryptographic scheme.",
+    "The verifier proves only that this locked fixture requires receiver-side revalidation and target-owned outcome evidence.",
+    "It is not a production incident, customer result, security certification, or measurement of replay frequency."
+  ]
+}

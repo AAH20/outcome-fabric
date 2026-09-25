@@ -47,3 +47,28 @@ decision, time, and costs. A passing local verification proves only that the
 fixture and report agree. It does not authenticate a reviewer, inspect a real
 agent or customer system, demonstrate a production failure rate, establish
 causality, provide certification, or prove commercial savings.
+
+## Second clinic: signed handoff versus current authorization
+
+The second clinic models a valid signed handoff and an HTTP 200 transport
+receipt whose sender state is stale by the time the receiver evaluates it. The
+receiver state has a newer policy/resource version, authorization is revoked,
+and no target-owned event confirms that the effect happened. A signature-only
+check passes; receiver-side legitimacy and outcome checks fail closed to
+`UNRESOLVED`.
+
+```bash
+cd outcome-fabric
+PYTHONPATH=src python3 -m outcome_fabric.signed_handoff_clinic_cli run \
+  fixtures/failure-clinic/signed-handoff-stale-world.json \
+  --output /tmp/signed-handoff-clinic.json
+PYTHONPATH=src python3 -m outcome_fabric.signed_handoff_clinic_cli verify \
+  fixtures/failure-clinic/signed-handoff-stale-world.json \
+  /tmp/signed-handoff-clinic.json
+```
+
+Expected results are `origin_verifier=PASS`,
+`receiver_legitimacy_verifier=FAIL`, `target_outcome_verifier=FAIL`, and
+`final_status=UNRESOLVED`. The fixture is synthetic and does not implement a
+cryptographic scheme, inspect a real target, establish replay frequency, or
+provide security certification.
