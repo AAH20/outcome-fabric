@@ -72,3 +72,27 @@ Expected results are `origin_verifier=PASS`,
 `final_status=UNRESOLVED`. The fixture is synthetic and does not implement a
 cryptographic scheme, inspect a real target, establish replay frequency, or
 provide security certification.
+
+## Third clinic: provenance of a revocation delta
+
+The third clinic extends the signed-handoff case. The receiver sees a newer
+policy/resource version and a `REVOKED` authorization, but the revocation event
+comes from an unattested third-party feed and has not been independently
+retrieved. The state delta may be genuine or forged; from the receiver's seat,
+the safe conclusion is `UNRESOLVED`, not a confident revocation verdict.
+
+```bash
+cd outcome-fabric
+PYTHONPATH=src python3 -m outcome_fabric.revocation_provenance_clinic_cli run \
+  fixtures/failure-clinic/untrusted-revocation-delta.json \
+  --output /tmp/untrusted-revocation-delta.json
+PYTHONPATH=src python3 -m outcome_fabric.revocation_provenance_clinic_cli verify \
+  fixtures/failure-clinic/untrusted-revocation-delta.json \
+  /tmp/untrusted-revocation-delta.json
+```
+
+Expected results are `origin_verifier=PASS`,
+`state_delta_provenance_verifier=FAIL`, `target_outcome_verifier=FAIL`,
+`authorization_conclusion=UNRESOLVED`, and `effect_allowed=false`. All inputs
+are synthetic; this clinic does not implement cryptographic attestation or
+decide whether a real revocation event was genuine.

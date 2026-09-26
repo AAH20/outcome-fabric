@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "clinic_id": "untrusted-revocation-delta",
+  "title": "The Revocation Was Real. The Evidence Wasn't.",
+  "evidence_class": "SYNTHETIC",
+  "claim": {
+    "claim_id": "revocation-event-proves-current-denial",
+    "text": "A receiver can confidently classify a signed handoff as revoked when a state-delta event says authorization changed."
+  },
+  "scenario": {
+    "task_id": "deploy-policy-bundle-17",
+    "signed_handoff": {
+      "signature_valid": true,
+      "sender_policy_epoch": 7,
+      "sender_resource_version": 41
+    },
+    "receiver_observation": {
+      "policy_epoch": 8,
+      "resource_version": 42,
+      "authorization": "REVOKED"
+    },
+    "revocation_event": {
+      "event_id": "synthetic-revocation-17",
+      "source": "third-party-state-feed",
+      "source_attested": false,
+      "independently_retrieved": false,
+      "source_revision": "feed-revision-8",
+      "payload_hash": "synthetic-revocation-payload-hash"
+    },
+    "target_outcome": {
+      "event_id": null,
+      "effect_applied": false
+    }
+  },
+  "verifier": {
+    "origin_checks": [
+      "signature_valid=true"
+    ],
+    "delta_checks": [
+      "source_attested=true",
+      "independently_retrieved=true",
+      "source_revision_present"
+    ],
+    "outcome_checks": [
+      "target_owned_event_id",
+      "effect_applied"
+    ]
+  },
+  "expected_result": {
+    "origin_verifier": "PASS",
+    "state_delta_provenance_verifier": "FAIL",
+    "target_outcome_verifier": "FAIL",
+    "authorization_conclusion": "UNRESOLVED",
+    "final_status": "UNRESOLVED",
+    "effect_allowed": false,
+    "failure_codes": [
+      "STATE_DELTA_NOT_INDEPENDENTLY_ATTESTED",
+      "TARGET_OUTCOME_NOT_OBSERVED"
+    ]
+  },
+  "limitations": [
+    "All states, event identifiers, revisions, and hashes are invented synthetic inputs.",
+    "The fixture does not implement cryptographic attestation or decide whether the revocation event was genuine or forged.",
+    "The verifier demonstrates a fail-closed response to an untrusted state delta; it does not measure replay or revocation frequency.",
+    "This is not a production incident, customer result, security certification, or authorization decision."
+  ]
+}
